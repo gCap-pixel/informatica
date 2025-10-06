@@ -27,9 +27,10 @@ function email(stringa){
 
 function validate_input(form){
 	var error_message="";
-	if(validazioneEmail(form.email.value)){
-		error_message+="email corretta";
+	if(!email(form.email.value)){
+		error_message+="email sbagliata";
 	}
+
 	if(error_message.length>0){
 		alert(error_message);
 		return false;
