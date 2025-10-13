@@ -48,7 +48,6 @@ function codice(stringa){
 
     }
     else{
-        alert("OK");
         return false
     }
 }
@@ -59,6 +58,27 @@ function email(stringa){
     }
     else{
         return false
+    }
+}
+
+function validazioneCheckbox(){
+    let num=0;
+    for (i=1; i <= 3; i++) {
+        if (document.getElementById(i).checked){
+        num++;
+        }
+    }
+    if (num!== 2){
+        if (num>2){
+                alert("seleziona solo due hobby")
+        }
+        else{
+            alert("seleziona almeno due hobby")
+        }
+        return false
+    }
+    else{
+        return true
     }
 }
 
@@ -74,6 +94,9 @@ function validate_input(form){
     }
     if(!codice(form.codiceF.value)){
         error_message+="codice fiscale non valido \n"
+    }
+     if (!validazioneCheckbox()) {
+        error_message+="hobby non valido \n";
     }
 	if(error_message.length>0){
 		alert(error_message);
